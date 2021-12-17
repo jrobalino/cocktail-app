@@ -6,7 +6,7 @@ const Search = ({
   handleSearchSubmit,
   handleSearchInput
 }) => {
-  
+
   return(
     <div>
       <h2>Search for a cocktail by name.</h2>
@@ -17,6 +17,12 @@ const Search = ({
     </div>
     );
 
+};
+
+Search.propTypes = {
+  searcTerm: PropTypes.string,
+  handleSearchSubmit: PropTypes.func,
+  handleSearchInput: PropTypes.func
 };
 
 export default Search;

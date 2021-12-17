@@ -14,13 +14,17 @@ const Table = ({data}) => {
 				{data.map(function (item) {
 					let cocktail = item.strDrink;
 					return (
-						<tr><td>{cocktail}</td></tr>
+						<tr key={cocktail}><td>{cocktail}</td></tr>
 					);
 				})}
 			</tbody>
 		</table>
 	);
 
+};
+
+Table.propTypes = {
+	data: PropTypes.array
 };
 
 export default Table;
