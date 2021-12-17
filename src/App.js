@@ -1,23 +1,36 @@
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import Search from './components/search/search.js';
+import Table from './components/table/table.js';
+
+const searchAPI = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
 
 function App() {
+
+  const [searchTerm, setSearchTerm] = useState('');
+  const [data, setData] = useState([]);
+
+  const makeRequest = () => {
+    fetch(searchAPI + searchTerm)
+    .then(response => response.json())
+    .then(data => setData(data["drinks"]));
+  };
+
+  const handleSearchInput = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const handleSearchSubmit = (event) => {
+    event.preventDefault();
+    makeRequest();
+  };
+
+  
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Search handleSearchSubmit={handleSearchSubmit} searchTerm={searchTerm} handleSearchInput={handleSearchInput} />
+      <Table data={data} />
     </div>
   );
 }
