@@ -9,7 +9,7 @@ const randomAPI = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
 function App() {
 
   const [searchTerm, setSearchTerm] = useState('');
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(null);
 
   const makeRequest = (isRandom) => {
    
