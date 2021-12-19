@@ -37,7 +37,6 @@ function App() {
   const handleBoozy = () => {
     makeRequest(true);
   };
-
   
 
   return (
