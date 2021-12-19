@@ -43,7 +43,7 @@ function App() {
   return (
     <div className="App">
       <Search handleSearchSubmit={handleSearchSubmit} searchTerm={searchTerm} handleSearchInput={handleSearchInput} handleBoozy={handleBoozy} />
-      {data.length > 0 && <Table data={data} />}
+      {data != null && <Table data={data} />}
     </div>
   );
 }
