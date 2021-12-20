@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { Link } from 'react-router-dom';
 import './App.css';
 import Search from './components/search/search.js';
 import Table from './components/table/table.js';
@@ -41,6 +42,7 @@ function App() {
 
   return (
     <div className="App">
+    <Link to="/a">A</Link>
       <Search handleSearchSubmit={handleSearchSubmit} searchTerm={searchTerm} handleSearchInput={handleSearchInput} handleBoozy={handleBoozy} />
       {data != null && <Table data={data} />}
     </div>
