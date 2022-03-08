@@ -15,7 +15,7 @@ const A = () => {
 		}
 		fetchData();
 
-	}, []);	
+	}, []);
 
 
 	return (
